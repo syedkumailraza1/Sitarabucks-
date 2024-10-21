@@ -1,0 +1,14 @@
+Product Name: AMERICANO, Quantity: 5, Price: 150, Product Image: ./stocks/menu/MENU_img/black_coffee_img/americano.jpg
+Product Name: AMERICANO, Quantity: 1, Price: 150, Product Image: ./stocks/menu/MENU_img/black_coffee_img/americano.jpg
+Product Name: Coffee And Cake Combo, Quantity: 1, Price: 299, Product Image: ./stocks/m5.jpg
+Product Name: BLACK COFFEE, Quantity: 1, Price: 120, Product Image: ./stocks/menu/MENU_img/black_coffee_img/black_coffee.jpg
+Product Name: Coffee And Cake Combo, Quantity: 1, Price: 299, Product Image: ./stocks/m5.jpg
+Product Name: Best Red Velvet Cake, Quantity: 1, Price: 350, Product Image: ../stocks/menu/MENU_img/Sweets/best red velvet cake.jpg
+Product Name: Chocolate Cake Combo, Quantity: 1, Price: 349, Product Image: ./stocks/o1.jpg
+Product Name: Burger And Fries Combo, Quantity: 1, Price: 399, Product Image: ./stocks/m6.jpg
+Product Name: COLD COCO, Quantity: 1, Price: 150, Product Image: ./stocks/menu/MENU_img/milkshake_img/cold coco.jpg
+Product Name: CAPPUCCINO, Quantity: 1, Price: 240, Product Image: ./stocks/menu/MENU_img/milk_coffee_img/cappuccino.jpg
+Product Name: COLD BREW LATTE, Quantity: 1, Price: 200, Product Image: ./stocks/menu/MENU_img/cold_coffee_img/cold-brew-latte.jpg
+Product Name: AMERICANO, Quantity: 1, Price: 150, Product Image: ./stocks/menu/MENU_img/black_coffee_img/americano.jpg
+Product Name: Best Red Velvet Cake, Quantity: 1, Price: 350, Product Image: ./stocks/menu/MENU_img/Sweets/best red velvet cake.jpg
+Product Name: BLACK COFFEE, Quantity: 1, Price: 120, Product Image: ./stocks/menu/MENU_img/black_coffee_img/black_coffee.jpg
