@@ -15,7 +15,7 @@ include("./menu_arr.php");
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Montserrat:wght@400;700&display=swap"
         rel="stylesheet">
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" type="text/css" href="./Menu/menu.css">
+    <link rel="stylesheet" type="text/css" href="menu.css">
     <!-- <link rel="stylesheet" href="menu_page.css"> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>

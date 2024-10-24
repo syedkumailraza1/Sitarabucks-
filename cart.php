@@ -94,7 +94,7 @@
         </script>
 
         <!-- Right side content -->
-        <div class="w-80 mr-10 mt-20">
+            <div class="w-80 mr-10 mt-20">
             <form method="post">
                 <?php
                 // Check if cart is empty

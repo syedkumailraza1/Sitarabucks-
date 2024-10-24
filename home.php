@@ -57,7 +57,9 @@
         <h2 class="text-center text-3xl md:text-4xl mt-16 md:mt-20">MENU</h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-            <div class="relative flex flex-col items-center group">
+            
+        <a href="black_coffee_page.php">
+        <div class="relative flex flex-col items-center group">
                 <div class="relative">
                     <img src="./stocks/m1.jpg" alt="Black Coffee" class="  w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transition duration-300 ease-in-out group-hover:blur-md">
                     <div class="absolute inset-0 flex items-center justify-center text-white  text-2xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
@@ -66,8 +68,10 @@
                 </div>
                 <p class="text-xl md:text-2xl mt-4">BLACK COFFEE</p>
             </div>
-        
-            <div class="relative flex flex-col items-center group">
+        </a>
+            
+        <a href="milk_coffee_page.php">
+        <div class="relative flex flex-col items-center group">
                 <div class="relative">
                     <img src="./stocks/m2.jpg" alt="Milk Coffee" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transition duration-300 ease-in-out group-hover:blur-md">
                     <div class="absolute inset-0 flex items-center justify-center text-white  text-2xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
@@ -76,8 +80,10 @@
                 </div>
                 <p class="text-xl md:text-2xl mt-4">MILK COFFEE</p>
             </div>
-        
-            <div class="relative flex flex-col items-center group">
+        </a>
+            
+        <a href="cold_coffee_page.php">
+        <div class="relative flex flex-col items-center group">
                 <div class="relative">
                     <img src="./stocks/m3.jpg" alt="Cold Coffee" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transition duration-300 ease-in-out group-hover:blur-md">
                     <div class="absolute inset-0 flex items-center justify-center text-white  text-2xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
@@ -86,8 +92,10 @@
                 </div>
                 <p class="text-xl md:text-2xl mt-4">COLD COFFEE</p>
             </div>
-        
-            <div class="relative flex flex-col items-center group">
+        </a>
+           
+        <a href="milk_shake_page.php">
+        <div class="relative flex flex-col items-center group">
                 <div class="relative">
                     <img src="./stocks/m4.jpg" alt="Milk Shakes" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transition duration-300 ease-in-out group-hover:blur-md">
                     <div class="absolute inset-0 flex items-center justify-center text-white  text-2xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
@@ -96,8 +104,10 @@
                 </div>
                 <p class="text-xl md:text-2xl mt-4">MILK SHAKES</p>
             </div>
-        
-            <div class="relative flex flex-col items-center group">
+        </a>
+           
+        <a href="sweets_page.php">
+        <div class="relative flex flex-col items-center group">
                 <div class="relative">
                     <img src="./stocks/m5.jpg" alt="Sweets" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transition duration-300 ease-in-out group-hover:blur-md">
                     <div class="absolute inset-0 flex items-center justify-center text-white  text-2xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
@@ -106,8 +116,10 @@
                 </div>
                 <p class="text-xl md:text-2xl mt-4">SWEETS</p>
             </div>
-        
-            <div class="relative flex flex-col items-center group">
+        </a>
+           
+        <a href="food_page.php">
+        <div class="relative flex flex-col items-center group">
                 <div class="relative">
                     <img src="./stocks/m6.jpg" alt="Food" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transition duration-300 ease-in-out group-hover:blur-md">
                     <div class="absolute inset-0 flex items-center justify-center text-white  text-2xl opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
@@ -117,6 +129,8 @@
                 <p class="text-xl md:text-2xl mt-4">FOOD</p>
             </div>
         </div>
+        </a>
+            
         
 
         <h2 class="text-center text-3xl md:text-4xl mt-16 md:mt-20">OFFERS</h2>

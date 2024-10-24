@@ -118,19 +118,19 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 'combos';
             <div class="flex justify-center space-x-20 py-8 mb-[30px]">
                 <div onclick="showCombo('coffee-combos')" class="cursor-pointer text-center">
                     <div class="w-52 h-52 bg-[#310E05] rounded-full flex items-center justify-center">
-                        <img src="./stocks/m2.jpg" alt="Coffee Combo Icon" class="w-52 h-52 rounded-full object-cover">
+                        <img src="./stocks/combo1.png" alt="Coffee Combo Icon" class="w-52 h-52 rounded-full object-cover">
                     </div>
                     <p class="mt-4 text-[#5B3B2B] font-semibold font-montserrat hover:underline">COFFEE COMBO</p>
                 </div>
                 <div onclick="showCombo('sweets-combos')" class="cursor-pointer text-center">
                     <div class="w-52 h-52 bg-[#570C00] rounded-full flex items-center justify-center">
-                        <img src="./stocks/m8.jpg" alt="Sweets Combo Icon" class="w-52 h-52 rounded-full object-cover">
+                        <img src="./stocks/combo2.png" alt="Sweets Combo Icon" class="w-52 h-52 rounded-full object-cover">
                     </div>
                     <p class="mt-4 text-[#5B3B2B] font-semibold font-montserrat hover:underline">SWEET'S COMBO</p>
                 </div>
                 <div onclick="showCombo('food-combos')" class="cursor-pointer text-center">
                     <div class="w-52 h-52 bg-[#193105] rounded-full flex items-center justify-center">
-                        <img src="./stocks/m7.jpg" alt="Food Combo Icon" class="w-52 h-52 rounded-full object-cover">
+                        <img src="./stocks/combo3.png" alt="Food Combo Icon" class="w-52 h-52 rounded-full object-cover">
                     </div>
                     <p class="mt-4 text-[#3D5939] font-semibold font-montserrat hover:underline">FOOD COMBO</p>
                 </div>
