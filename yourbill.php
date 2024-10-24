@@ -22,7 +22,7 @@ session_start();
     <!--  with session destroy -->
     <form method="POST">
         <button name="backToHome" class="text-black cursor-pointer  bg-gray-200 shadow-lg rounded-3xl flex justify-center  items-center absolute top-4 left-4 px-4 py-2 ">
-            <img class="w-5 mr-1 font-semibold cursor-pointer" src="../assets/icons/back.png" alt="backkey">
+            <img class="w-5 mr-1 font-semibold cursor-pointer" src="./assets/icons/back.png" alt="backkey">
             Back To Home</button>
     </form>
 
@@ -32,7 +32,7 @@ session_start();
         <div class="bg-white  rounded-lg shadow-lg mt-14  p-5 w-[370px]">
             <div class="text-center mb-5">
                 <div class="flex justify-center items-center mb-2.5">
-                    <img src="../assets/icons/logo.jpg" alt="" class="w-28 h-28 rounded-full shadow-md">
+                    <img src="./assets/icons/logo.jpg" alt="" class="w-28 h-28 rounded-full shadow-md">
                 </div>
                 <div class="font-bold">Order no : <?= $_SESSION['order_no'] ?></div>
                 <?php
@@ -68,19 +68,19 @@ session_start();
             echo '<div class="border-t-2 pt-2.5">
     <div class="flex justify-between mb-1">
         <span class="font-bold">Sub Total:</span>
-        <span>₹' . $totalPrice . '</span>
+        <span class="w-32 text-end">₹' . $totalPrice . '</span>
     </div>
     <div class="flex justify-between mb-1">
     <span class="font-bold">Discount' . ($_SESSION['coupon'] === 0 ? '' : '(' . $_SESSION['coupon'] .  '%)') . ':</span>
-    <span class=" text-green-600  w-14 text-end ">- ₹' . $discountedAmount . '</span>
+    <span class=" text-green-600  w-32 text-end ">- ₹' . $discountedAmount . '</span>
 </div>
 <div class="flex justify-between mb-1 border-b-2">
     <span class="font-bold">Tax:</span>
-    <span class=" w-16 text-end">+ ₹' . $tax . '</span>
+    <span class=" w-32 text-end">+ ₹' . $tax . '</span>
 </div>
 <div class="flex justify-between mb-1 font-bold">
     <span>Grand Total:</span>
-    <span class="text-green-600 font-semibold">₹' . $grandTotal . '</span>
+    <span class="text-green-600 text-end w-32 font-semibold">₹' . $grandTotal . '</span>
 </div>
 <div class="flex justify-between mb-1 font-bold">
     <span>Mode of payment:</span>
@@ -91,7 +91,7 @@ session_start();
         </div>
     </div>
     <!-- <div class="flex justify-center mt-1">
-         <img src="../assets/icons/paymentkaro.jpg" alt="Google Pay" class="w-60 h-32  mix-blend-multiply">
+         <img src="./assets/icons/paymentkaro.jpg" alt="Google Pay" class="w-60 h-32  mix-blend-multiply">
             </div> 
              -->
 
@@ -107,6 +107,6 @@ session_start();
 if (isset($_POST["backToHome"])) {
     //destroy the array of session of cart page and order/bill page
     session_destroy();
-    header("Location:../home.php");
+    header("Location:./home.php");
 }
 ?>

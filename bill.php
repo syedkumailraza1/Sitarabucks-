@@ -1,8 +1,8 @@
 <?php
 session_start();
 $_SESSION['cart'] = [];
-include_once '../DB/connection.php';
-include_once '../DB/Order.php';
+include_once './DB/connection.php';
+include_once './DB/Order.php';
 
 if (!isset($_SESSION['order_inserted'])) {
     $database = new Database();
@@ -41,7 +41,7 @@ if (!isset($_SESSION['order_inserted'])) {
         echo "Order insertion failed.";
     }
 
-    include_once("../PHPMessageSender/MessageSender.php");
+    include_once("./PHPMessageSender/MessageSender.php");
     $MessageSender = new MessageSender();
     $MessageSender->ImageSender($_SESSION['phone']);
     $MessageSender->InvoiceSender($_SESSION['phone']);
@@ -75,14 +75,14 @@ if (!isset($_SESSION['order_inserted'])) {
 </script>
 
 <body class="font-montserrat bg-gray-100">
-    <?php include_once('../nav.php') ?>
+    <?php include_once('./nav.php') ?>
 
 
     <div class="flex flex-wrap mt-2 justify-center items-center h-screen m-0">
         <div class="bg-white rounded-lg shadow-md p-5 w-[380px]">
             <div class="text-center mb-5">
                 <div class="flex justify-center items-center mb-2.5">
-                    <img src="../assets/icons/logo.jpg" alt="" class="w-28 h-28 rounded-full shadow-md">
+                    <img src="./assets/icons/logo.jpg" alt="" class="w-28 h-28 rounded-full shadow-md">
                 </div>
                 <div class="font-bold">
                     Order no : <?= $_SESSION['order_no'] ?>
@@ -114,23 +114,23 @@ if (!isset($_SESSION['order_inserted'])) {
             echo '<div class="border-t-2 pt-2.5">
                 <div class="flex justify-between mb-1">
                     <span class="font-bold">Sub Total:</span>
-                    <span>₹' . $totalPrice . '</span>
+                    <span class="w-32 text-end">₹' . $totalPrice . '</span>
                 </div>
                 <div class="flex justify-between mb-1">
                 <span class="font-bold">Discount' . ($_SESSION['coupon'] === 0 ? '' : '(' . $_SESSION['coupon'] .  '%)') . ':</span>
-                <span class=" text-green-600  w-14 text-end ">- ₹' . $discountedAmount . '</span>
+                <span class=" text-green-600 w-32 text-end ">- ₹' . $discountedAmount . '</span>
             </div>
            <div class="flex justify-between mb-1 border-b-2">
                 <span class="font-bold">Tax:</span>
-                <span class=" w-16 text-end">+ ₹' . $tax . '</span>
+                <span class=" w-32 text-end">+ ₹' . $tax . '</span>
             </div>
             <div class="flex justify-between mb-1 font-bold">
                 <span>Grand Total:</span>
-                <span class="text-green-600 font-semibold">₹' . $grandTotal . '</span>
+                <span class="text-green-600 text-end w-32 font-semibold">₹' . $grandTotal . '</span>
             </div>
             <div class="flex justify-between mb-1 font-bold">
                 <span>Mode of payment:</span>
-                <span>' . $_SESSION['paymentMode']  . '</span>
+                <span class="w-32 text-end">' . $_SESSION['paymentMode']  . '</span>
             </div>
         </div>';
             ?>
@@ -139,11 +139,12 @@ if (!isset($_SESSION['order_inserted'])) {
             <div class="flex mt-5 ml-5">
                 <form action="yourbill.php" method="POST">
                     <button class="bg-gray-300 text-gray-800 w-32 px-5 py-2.5 rounded-lg mr-2" name="yourBill">Print bill</button>
-                    <button class="bg-sitarabuk-brown text-white w-32 px-5 py-2.5 rounded-lg">Back</button>
+                    
                 </form>
+                <a href="home.php"><button class="bg-sitarabuk-brown text-white w-32 px-5 py-2.5 rounded-lg">Back</button></a>
             </div>
             <div class="flex justify-center mt-5">
-                <img src="../assets/icons/paymentkaro.jpg" alt="Google Pay" class="w-60 h-32 ml-6 mix-blend-multiply">
+                <img src="./assets/icons/paymentkaro.jpg" alt="Google Pay" class="w-60 h-32 ml-6 mix-blend-multiply">
             </div>
         </div>
     </div>

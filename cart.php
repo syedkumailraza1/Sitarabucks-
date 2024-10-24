@@ -46,16 +46,20 @@
         <!-- Left side content -->
 
         <div class="flex-1 pr-8 mb-8 lg:mb-0">
-            <?php
-            if (!$cartEmpty): // Only show buttons if cart is not empty
-            ?>
-                <form method="post" class="flex overflow-hidden mb-8">
-                    <button id="dineIn" name="place" value="dineIn" class="rounded-l-lg focus:bg-gray-200 focus:text-[#310E05] px-4 py-2 bg-sitarabuk-brown text-white font-semibold">DINE IN</button>
-                    <button id="takeAway" name="place" value="takeAway" class="rounded-r-lg focus:bg-[#310E05] focus:text-gray-200 px-4 py-2 bg-gray-200 text-sitarabuk-brown font-semibold">TAKE AWAY</button>
-                </form>
-            <?php
-            endif; // End of cart check
-            ?>
+           
+
+        <?php
+if (!$cartEmpty): // Only show buttons if cart is not empty
+?>
+    <form method="post" class="flex overflow-hidden mb-8">
+        <button id="dineIn" name="place" value="dineIn" class="rounded-l-lg px-4 py-2 bg-[#310E05] text-white font-semibold border border-[#310E05] transition duration-300" onclick="toggleButtonColors(this, document.getElementById('takeAway'))">DINE IN</button>
+        <button id="takeAway" name="place" value="takeAway" class="rounded-r-lg px-4 py-2 bg-white text-[#310E05] font-semibold border border-[#310E05] transition duration-300" onclick="toggleButtonColors(this, document.getElementById('dineIn'))">TAKE AWAY</button>
+    </form>
+<?php
+endif; // End of cart check
+?>
+
+        
             <!-- Products and Order Items -->
             <div id="orderItems">
                 <?php
@@ -65,33 +69,34 @@
             </div>
         </div>
         <script>
-            // Get the buttons
-            const takeAwayButton = document.getElementById('takeAway');
-            const dineInButton = document.getElementById('dineIn');
+function toggleButtonColors(clickedButton, otherButton) {
+    // Prevent the default form submission
+    event.preventDefault();
 
-            // Function to handle the click and swap colors
-            function toggleButtonColors(clickedButton, otherButton) {
-                // Toggle classes for the clicked button
-                clickedButton.classList.remove('bg-gray-200', 'text-sitarabuk-brown');
-                clickedButton.classList.add('bg-[#310E05]', 'text-gray-200');
+    // Always set the clicked button to brown background and white text
+    clickedButton.classList.remove('bg-white', 'text-[#310E05]');
+    clickedButton.classList.add('bg-[#310E05]', 'text-white');
 
-                // Toggle classes for the other button
-                otherButton.classList.remove('bg-[#310E05]', 'text-gray-200');
-                otherButton.classList.add('bg-gray-200', 'text-sitarabuk-brown');
-            }
+    // Always set the other button to white background and brown text
+    otherButton.classList.remove('bg-[#310E05]', 'text-white');
+    otherButton.classList.add('bg-white', 'text-[#310E05]');
+}
 
-            // Add event listeners to the buttons
-            takeAwayButton.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent form submission
-                toggleButtonColors(takeAwayButton, dineInButton);
-            });
-
-            dineInButton.addEventListener('click', function(e) {
-                takeAwayButton.classList.add('bg-[#310E05]', 'text-gray-200');
-                takeAwayButton.classList.remove('bg-gray-200', 'text-sitarabuk-brown');
-
-            });
-        </script>
+// Set initial state (Dine In selected by default)
+window.onload = function() {
+    const dineInButton = document.getElementById('dineIn');
+    const takeAwayButton = document.getElementById('takeAway');
+    if (dineInButton && takeAwayButton) {
+        // Ensure Dine In starts as selected (brown background, white text)
+        dineInButton.classList.remove('bg-white', 'text-[#310E05]');
+        dineInButton.classList.add('bg-[#310E05]', 'text-white');
+        
+        // Ensure Take Away starts as unselected (white background, brown text)
+        takeAwayButton.classList.remove('bg-[#310E05]', 'text-white');
+        takeAwayButton.classList.add('bg-white', 'text-[#310E05]');
+    }
+};
+</script>
 
         <!-- Right side content -->
             <div class="w-80 mr-10 mt-20">
@@ -140,24 +145,50 @@
                     </div>
                 </div>';
                 ?>
-                <!-- Payment Options -->
-                <div class="flex justify-between mb-4">
-                    <label class="flex flex-col cursor-pointer items-center justify-center w-24  active:bg-gray-200 active:transition duration-1000 h-16 bg-white border border-gray-300 rounded-md">
-                        <input type="radio" name="paymentMode" value="cash" class="hidden">
-                        <img src="assets/icons/cashMain.png" alt="Cash" class="w-6 h-6 mb-1 filter brightness-0">
-                        <span class="text-xs">CASH</span>
-                    </label>
-                    <label class="flex flex-col cursor-pointer items-center justify-center w-24 active:bg-gray-200 active:transition duration-1000 h-16 bg-sitarabuk-brown text-white rounded-md">
-                        <input type="radio" name="paymentMode" value="card" class="hidden">
-                        <img src="assets/icons/cardMain.png" alt="Card" class="w-6 h-6 mb-1 filter brightness-0 invert">
-                        <span class="text-xs">CARD</span>
-                    </label>
-                    <label class="flex flex-col cursor-pointer items-center justify-center w-24  active:bg-gray-200 active:transition duration-1000 h-16 bg-white border border-gray-300 rounded-md">
-                        <input type="radio" name="paymentMode" value="upi" class="hidden">
-                        <img src="assets/icons/upiMain.png" alt="UPI" class="w-6 h-6 mb-1 filter brightness-0">
-                        <span class="text-xs">UPI</span>
-                    </label>
-                </div>
+               
+               <!-- Payment Options -->
+<div class="flex justify-between mb-4">
+    <label id="cashLabel" class="flex flex-col cursor-pointer items-center justify-center w-24 h-16 bg-white border border-gray-300 rounded-md transition duration-300">
+        <input type="radio" name="paymentMode" value="cash" class="hidden" onchange="updatePaymentStyle(this)">
+        <img id="cashIcon" src="assets/icons/cashMain.png" alt="Cash" class="w-6 h-6 mb-1 filter brightness-0">
+        <span class="text-xs">CASH</span>
+    </label>
+    <label id="cardLabel" class="flex flex-col cursor-pointer items-center justify-center w-24 h-16 bg-white border border-gray-300 rounded-md transition duration-300">
+        <input type="radio" name="paymentMode" value="card" class="hidden" onchange="updatePaymentStyle(this)">
+        <img id="cardIcon" src="assets/icons/cardMain.png" alt="Card" class="w-6 h-6 mb-1 filter brightness-0">
+        <span class="text-xs">CARD</span>
+    </label>
+    <label id="upiLabel" class="flex flex-col cursor-pointer items-center justify-center w-24 h-16 bg-white border border-gray-300 rounded-md transition duration-300">
+        <input type="radio" name="paymentMode" value="upi" class="hidden" onchange="updatePaymentStyle(this)">
+        <img id="upiIcon" src="assets/icons/upiMain.png" alt="UPI" class="w-6 h-6 mb-1 filter brightness-0">
+        <span class="text-xs">UPI</span>
+    </label>
+</div>
+
+<script>
+function updatePaymentStyle(radio) {
+    const labels = ['cashLabel', 'cardLabel', 'upiLabel'];
+    const icons = ['cashIcon', 'cardIcon', 'upiIcon'];
+    
+    labels.forEach((label, index) => {
+        const el = document.getElementById(label);
+        const icon = document.getElementById(icons[index]);
+        if (radio.value === label.replace('Label', '')) {
+            el.classList.remove('bg-white');
+            el.classList.add('bg-[#310E05]', 'text-white');
+            icon.classList.remove('brightness-0');
+            icon.classList.add('brightness-0', 'invert');
+        } else {
+            el.classList.remove('bg-[#310E05]', 'text-white');
+            el.classList.add('bg-white');
+            icon.classList.remove('brightness-0', 'invert');
+            icon.classList.add('brightness-0');
+        }
+    });
+}
+</script>
+
+                
 
                 <!-- Coupon Code and Place Order -->
                 <div class="flex space-x-2">
@@ -216,7 +247,7 @@
         </div>
         <div class="flex justify-between gap-4">
                <a href="Cart.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Back</a>
-                <a href="./Bill/bill.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Go To Bill</a>
+                <a href="./bill.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Go To Bill</a>
         </div>
     </div>';
                         } else if ($_POST['paymentMode'] === "card") {
@@ -231,7 +262,7 @@
                                 </div>
                                 <div class="flex justify-between gap-4">
                                      <a href="Cart.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Back</a>
-                                     <a href="./Bill/bill.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Go To Bill</a>
+                                     <a href="./bill.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Go To Bill</a>
                                 </div>
                             </div>';
                         } else if ($_POST['paymentMode'] === "upi") {
@@ -246,7 +277,7 @@
                                 </div>
                                 <div class="flex justify-between gap-4">
                                      <a href="Cart.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Back</a>
-                                     <a href="./Bill/bill.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Go To Bill</a>
+                                     <a href="./bill.php" class="bg-[#3D1D0E] text-white rounded-full py-2 px-6 w-full text-center">Go To Bill</a>
                                 </div>
                             </div>';
                         }

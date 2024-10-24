@@ -50,7 +50,7 @@ $expirationDate = '20-12-2024'; // Replace with actual date
         <h1 class="text-center text-4xl font-poiret mb-8">OFFERS</h1>
         <section class="flex-col" id="of1">
             <div id="content " class="flex">
-                <img class="w-96" src="./stocks/OF3 1.png" alt="">
+                <img class="w-auto h-[150px] my-auto" src="./stocks/OF3 1.png" alt="">
                 <div id="content-div" class="bg-white h-[250px] w-[535px] rounded-lg" 
                 style="box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);">
                 <h2 class="text-3xl font-bold text-center mb-4 text-sitarabuk-brown font-poiret">
@@ -64,9 +64,10 @@ $expirationDate = '20-12-2024'; // Replace with actual date
                     <div class="flex items-center justify-center mb-4">
                         <span class="mr-2 text-black font-montserrat">Use Code:</span>
                         <span class="font-mono bg-gray-200 px-2 py-1 rounded mr-2 text-sitarabuk-brown"><?php echo $couponCode; ?></span>
-                        <button class="px-2 py-1 rounded text-sm bg-sitarabuk-brown text-white" id="copyBtn">
-                            COPY
-                        </button>
+                        <button class="px-2 py-1 rounded text-sm bg-sitarabuk-brown text-white copyBtn" data-coupon="<?php echo $couponCode; ?>">
+    COPY
+</button>
+
                     </div>
                     
                     <!-- Terms and conditions -->
@@ -86,7 +87,7 @@ $expirationDate = '20-12-2024'; // Replace with actual date
 
         <section class="flex-col mt-5" id="of2">
             <div id="content " class="flex">
-                <img class="w-96" src="stocks/OF2.png" alt="">
+                <img class="w-auto h-[187px] my-auto" src="stocks/OF2.png" alt="">
                 <div id="content-div" class="bg-white h-[250px] w-[535px] rounded-lg" 
                 style="box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);">
                 <h2 class="text-3xl font-bold text-center mb-4 text-sitarabuk-brown font-poiret">
@@ -100,9 +101,10 @@ $expirationDate = '20-12-2024'; // Replace with actual date
                     <div class="flex items-center justify-center mb-4">
                         <span class="mr-2 text-black font-montserrat">Use Code:</span>
                         <span class="font-mono bg-gray-200 px-2 py-1 rounded mr-2 text-sitarabuk-brown"><?php echo $couponCode1; ?></span>
-                        <button class="px-2 py-1 rounded text-sm bg-sitarabuk-brown text-white" id="copyBtn">
-                            COPY
-                        </button>
+                        <button class="px-2 py-1 rounded text-sm bg-sitarabuk-brown text-white copyBtn" data-coupon="<?php echo $couponCode1; ?>">
+    COPY
+</button>
+
                     </div>
                     
                     <!-- Terms and conditions -->
@@ -120,7 +122,7 @@ $expirationDate = '20-12-2024'; // Replace with actual date
         <!--------------------------------- OFFER 3 ----------------------->
         <section class="flex-col mt-5" id="of2">
             <div id="content " class="flex">
-                <img class="w-96"  src="stocks/OF1.png" alt="">
+                <img class="w-auto h-[187px] my-auto"  src="stocks/OF1.png" alt="">
                 <div id="content-div" class="bg-white h-[250px] w-[535px] rounded-lg" 
                 style="box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);">
                 <h2 class="text-3xl font-bold text-center mb-4 text-sitarabuk-brown font-poiret">
@@ -134,9 +136,9 @@ $expirationDate = '20-12-2024'; // Replace with actual date
                     <div class="flex items-center justify-center mb-4">
                         <span class="mr-2 text-black font-montserrat">Use Code:</span>
                         <span class="font-mono bg-gray-200 px-2 py-1 rounded mr-2 text-sitarabuk-brown"><?php echo $couponCode2; ?></span>
-                        <button class="px-2 py-1 rounded text-sm bg-sitarabuk-brown text-white" id="copyBtn">
-                            COPY
-                        </button>
+                        <button class="px-2 py-1 rounded text-sm bg-sitarabuk-brown text-white copyBtn" data-coupon="<?php echo $couponCode2; ?>">
+ COPY
+</button>
                     </div>
                     
                     <!-- Terms and conditions -->
@@ -156,19 +158,13 @@ $expirationDate = '20-12-2024'; // Replace with actual date
     </div>
     </main>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        
-        const copyButtons = document.querySelectorAll('#copyBtn');
-
-       
-
-        // Add functionality to all COPY buttons
-        copyButtons.forEach((button, index) => {
-            button.addEventListener('click', function () {
-                const couponCode = '<?php echo $couponCode; ?>'; // You can adjust this to be dynamic if needed
-                navigator.clipboard.writeText(couponCode).then(function () {
-                    alert('Coupon code copied to clipboard!');
-                });
+    copyButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const couponCode = this.getAttribute('data-coupon'); // Get the coupon code dynamically
+            navigator.clipboard.writeText(couponCode).then(function () {
+                alert('Coupon code ' + couponCode + ' copied to clipboard!');
+            }).catch(function (err) {
+                console.error('Could not copy text: ', err);
             });
         });
     });
