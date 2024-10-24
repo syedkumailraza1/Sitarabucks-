@@ -177,18 +177,28 @@
         <h2 class="text-center text-3xl md:text-4xl mt-16 md:mt-20">COMBOS</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"> 
-            <div class="flex flex-col items-center group">
+
+        <a href="comboPage.php">
+        <div class="flex flex-col items-center group">
                 <img src="./stocks/combo1.png" alt="Coffee Combos" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-110">
                 <p class="text-xl md:text-2xl mt-4">COFFEE COMBOS</p>
             </div>
-            <div class="flex flex-col items-center group">
+        </a>
+            
+        <a href="comboPage.php">
+        <div class="flex flex-col items-center group">
                 <img src="./stocks/combo2.png" alt="Sweets Combos" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-110">
                 <p class="text-xl md:text-2xl mt-4">SWEETS COMBOS</p>
             </div>
-            <div class="flex flex-col items-center group">
+        </a>
+           
+        <a href="comboPage.php">
+        <div class="flex flex-col items-center group">
                 <img src="./stocks/combo3.png" alt="Food Combos" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover transform transition-transform duration-300 ease-in-out group-hover:scale-110">
                 <p class="text-xl md:text-2xl mt-4">FOOD COMBOS</p>
             </div>
+        </a>
+            
         </div>
         
 
